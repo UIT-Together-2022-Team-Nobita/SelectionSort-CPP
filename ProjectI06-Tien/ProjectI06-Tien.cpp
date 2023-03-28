@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include <string>
 #include <iomanip>
 using namespace std;
@@ -8,6 +9,7 @@ struct node
 {
 	int info;
 	struct node* pNext;
+	struct node* pPrev;
 };
 typedef struct node NODE;
 struct list
@@ -29,7 +31,7 @@ bool Outp(LIST, string);
 
 int main()
 {
-	cout << "Project I05" << endl;
+	cout << "Project I06" << endl;
 	LIST l;
 	for (int i = 1; i <= 13; i++)
 	{
@@ -71,6 +73,7 @@ NODE* GetNode(int x)
 		return NULL;
 	p->info = x;
 	p->pNext = NULL;
+	p->pPrev = NULL;
 	return p;
 }
 void AddTail(LIST& l, NODE* p)
@@ -80,6 +83,7 @@ void AddTail(LIST& l, NODE* p)
 	else
 	{
 		l.pTail->pNext = p;
+		p->pPrev = l.pTail;
 		l.pTail = p;
 	}
 }
