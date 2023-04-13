@@ -74,15 +74,16 @@ void SelectionSort(FRACTION FA[], int n)
 		{
 			if (FCompare(FA[j], FA[lc]) == -1)
 				lc = j;
-			if (lc != i)
-			{
-				FRACTION temp = FA[i];
-				FA[i] = FA[lc];
-				FA[lc] = temp;
-			}			
-		}			
+		}
+		if (lc != i)
+		{
+			FRACTION temp = FA[i];
+			FA[i] = FA[lc];
+			FA[lc] = temp;
+		}
 	}
 }
+
 bool Output(FRACTION FA[], int n, string filename)
 {
 	ofstream fo(filename);
